@@ -11,14 +11,13 @@ import (
 // Получение параметор для генерации пароля из аргументов командной строки.
 // Возвращает переданные параметры для генерации пароля: длина, нужны ли цифры,
 // нужны ли специальные символы.
-func getPasswordParams() (int, bool, bool) {
+func getPasswordParams() (length int, useDigits, useSymbols, isCopy bool) {
 	var args = os.Args[1:]
 
-	var (
-		length     = 16
-		useDigits  = false
-		useSymbols = false
-	)
+	length = 16
+	useDigits = false
+	useSymbols = false
+	isCopy = false
 
 	for _, arg := range args {
 		switch arg {
@@ -26,6 +25,8 @@ func getPasswordParams() (int, bool, bool) {
 			useDigits = true
 		case "-symbols", "-s":
 			useSymbols = true
+		case "-copy", "-c":
+			isCopy = true
 		default:
 			if num, err := strconv.Atoi(arg); err == nil {
 				length = num
@@ -33,7 +34,7 @@ func getPasswordParams() (int, bool, bool) {
 		}
 	}
 
-	return length, useDigits, useSymbols
+	return
 }
 
 func showPassword(length int, useDigits, useSymbols bool, password string) {

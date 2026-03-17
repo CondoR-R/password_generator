@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	var length, useDigits, useSymbols = getPasswordParams()
+	var length, useDigits, useSymbols, isCopy = getPasswordParams()
 
 	var password, err = generatePassword(length, useDigits, useSymbols)
 	if err != nil {
@@ -14,5 +14,7 @@ func main() {
 	}
 
 	showPassword(length, useDigits, useSymbols, password)
-	copyPassword(password)
+	if isCopy {
+		copyPassword(password)
+	}
 }
