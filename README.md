@@ -104,7 +104,7 @@ sudo pacman -S xclip
 ./password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy] [-h] [-help]
 
 # Windows
-.\password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy] [-h] [-help]
+password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy] [-h] [-help]
 ```
 
 - длина – целое число, длина пароля (по умолчанию 16)
