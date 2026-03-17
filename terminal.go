@@ -8,16 +8,34 @@ import (
 	clipboard "github.com/atotto/clipboard"
 )
 
+// Выводит сообщение с описанием программы
+func showHelp() {
+	var message = `
+Программа для генерации паролей.
+По умолчанию (без указания дополнительных аргументов при запуске программы)
+генерирует пароль длиной 16 символов из сточных и прописных латинских букв.
+
+Возможные аргументы:
+
+[длина] - целое число, длина пароля (рекомендуемое значение 16+ символов)
+-d / -digits - включить в генерацию пароля цифры
+-s / -symbols - включить в генерацию пароля специальные символы
+-c / -copy - автоматически скопировать в буфер обмена сгенерированный пароль
+`
+	fmt.Println(message)
+}
+
 // Получение параметор для генерации пароля из аргументов командной строки.
 // Возвращает переданные параметры для генерации пароля: длина, нужны ли цифры,
 // нужны ли специальные символы.
-func getPasswordParams() (length int, useDigits, useSymbols, isCopy bool) {
+func getPasswordParams() (length int, useDigits, useSymbols, isCopy, isHelp bool) {
 	var args = os.Args[1:]
 
 	length = 16
 	useDigits = false
 	useSymbols = false
 	isCopy = false
+	isHelp = false
 
 	for _, arg := range args {
 		switch arg {
@@ -27,6 +45,8 @@ func getPasswordParams() (length int, useDigits, useSymbols, isCopy bool) {
 			useSymbols = true
 		case "-copy", "-c":
 			isCopy = true
+		case "-help", "-h":
+			isHelp = true
 		default:
 			if num, err := strconv.Atoi(arg); err == nil {
 				length = num

@@ -13,6 +13,9 @@
 
 - Копирование в буфер обмена (флаг `-c` / `-copy`)
 
+- Получение информации о работе программы и возможных аргументах настройки
+(флаг `-h` / `-help`)
+
 - Понятный вывод в терминал с указанием использованных параметров
 
 - Кросс-платформенность (Windows, macOS, Linux)
@@ -37,7 +40,7 @@
 2. Скачайте архив, соответствующий вашей операционной системе и архитектуре:
    - **Windows (64-bit):** `password-generator-windows-amd64.exe`
    - **macOS (Intel):** `password-generator-darwin-amd64`
-   - **macOS (Apple Silicon):** `password-generator-darwin-arm64`
+   - **macOS (Apple Silicon):** `password-generator-darwin-arm`
    - **Linux (64-bit):** `password-generator-linux-amd64`
 3. (Только для Linux/macOS) Сделайте файл исполняемым:
 ```bash
@@ -98,10 +101,10 @@ sudo pacman -S xclip
 
 ```bash
 # Linux/macOS
-./password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy]
+./password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy] [-h] [-help]
 
 # Windows
-.\password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy]
+.\password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy] [-h] [-help]
 ```
 
 - длина – целое число, длина пароля (по умолчанию 16)
@@ -111,6 +114,8 @@ sudo pacman -S xclip
 - `-s` или `-symbols` – включить специальные символы
 
 - `-c` или `-copy` - включить копирование в буфер обмена
+
+- `-h` или `-help` - получить информацию о работе программы и возможных аргументах настройки
 
 Порядок аргументов не важен. Неизвестные флаги игнорируются.
 

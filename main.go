@@ -5,7 +5,12 @@ import (
 )
 
 func main() {
-	var length, useDigits, useSymbols, isCopy = getPasswordParams()
+	var length, useDigits, useSymbols, isCopy, isHelp = getPasswordParams()
+
+	if isHelp {
+		showHelp()
+		return
+	}
 
 	var password, err = generatePassword(length, useDigits, useSymbols)
 	if err != nil {
