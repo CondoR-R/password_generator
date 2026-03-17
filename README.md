@@ -94,8 +94,14 @@ sudo pacman -S xclip
 
 ## 🚀 Использование
 
-```text
+Программа работает в терминале. Для запуска необходимо открыть терминал в директории с файлом.
+
+```bash
+# Linux/macOS
 ./password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy]
+
+# Windows
+.\password-generator [длина] [-d] [-digits] [-s] [-symbols] [-c] [-copy]
 ```
 
 - длина – целое число, длина пароля (по умолчанию 16)
