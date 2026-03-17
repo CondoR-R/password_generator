@@ -9,6 +9,7 @@ func main() {
 
 	if isHelp {
 		showHelp()
+		showPause()
 		return
 	}
 
@@ -22,4 +23,5 @@ func main() {
 	if isCopy {
 		copyPassword(password)
 	}
+	showPause()
 }

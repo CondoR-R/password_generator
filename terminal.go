@@ -85,3 +85,9 @@ func copyPassword(password string) {
 		fmt.Printf("Пароль скопирован в буфер обмена!\n")
 	}
 }
+
+// Вывод паузы для предотвращения мгновенного завершения программы
+func showPause() {
+	fmt.Println("Нажмите Enter для выхода...")
+	fmt.Scanln()
+}
