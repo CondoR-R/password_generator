@@ -37,7 +37,7 @@
 3. Соберите исполняемый файл:
 
 ```bash
-go build -o password-generator main.go terminal.go
+go build -o password-generator
 ```
 
 Для Linux потребуется установить `xclip` или `xsel` (для работы с буфером обмена):
