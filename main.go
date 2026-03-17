@@ -8,6 +8,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	clipboard "github.com/atotto/clipboard"
 )
 
 // Получение алфавита пароля исходя из условия.
@@ -122,7 +124,19 @@ func showPassword(length int, useDigits, useSymbols bool, password string) {
 	} else {
 		fmt.Printf("выкл\n")
 	}
-	fmt.Printf("%s\n", password)
+	fmt.Printf("Сгенерированный пароль: %s\n", password)
+}
+
+// Копирование в буфер обмена.
+// Принимает пароль, который необходимо скопировать.
+// Выводит в терминал сообщение об успешном/не успешном копировании.
+func copyPassword(password string) {
+	err := clipboard.WriteAll(password)
+	if err != nil {
+		fmt.Printf("Не удалось скопировать в буфер обмена: %s\n", err.Error())
+	} else {
+		fmt.Printf("Пароль скопирован в буфер обмена!\n")
+	}
 }
 
 func main() {
@@ -130,9 +144,10 @@ func main() {
 
 	var password, err = generatePassword(length, useDigits, useSymbols)
 	if err != nil {
-		fmt.Printf("ERROR: %s\n", err)
+		fmt.Printf("ERROR: %s\n", err.Error())
 		return
 	}
 
 	showPassword(length, useDigits, useSymbols, password)
+	copyPassword(password)
 }
