@@ -31,6 +31,42 @@
 
 ## 📦 Установка
 
+### Вариант 1: Скачать готовый бинарник (рекомендуется)
+
+1. Перейдите на [страницу релизов](https://github.com/CondoR-R/password_generator/releases).
+2. Скачайте архив, соответствующий вашей операционной системе и архитектуре:
+   - **Windows (64-bit):** `password-generator-windows-amd64.exe`
+   - **macOS (Intel):** `password-generator-darwin-amd64`
+   - **macOS (Apple Silicon):** `password-generator-darwin-arm64`
+   - **Linux (64-bit):** `password-generator-linux-amd64`
+3. (Только для Linux/macOS) Сделайте файл исполняемым:
+```bash
+chmod +x password-generator
+```
+4. (Опционально) Переместите файл в директорию, находящуюся в `PATH`, например `/usr/local/bin`, чтобы запускать из любого места:
+```bash
+sudo mv password-generator /usr/local/bin/
+```
+
+#### Зависимости для работы с буфером обмена на Linux
+
+Для корректного копирования пароля в буфер обмена на Linux требуется установить одну из утилит: `xclip` или `xsel`.
+
+```bash
+# Ubuntu/Debian
+sudo apt install xclip
+
+# Fedora
+sudo dnf install xclip
+
+# Arch Linux
+sudo pacman -S xclip
+```
+
+На Windows и macOS дополнительные действия не нужны.
+
+## Вариант 2: Сборка из исходников (требуется Go)
+
 1. Убедитесь, что у вас установлен Go (версия 1.16 или новее).
 
 2. Склонируйте репозиторий или скопируйте файлы проекта.
